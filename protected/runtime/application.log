@@ -35,3 +35,127 @@ Stack trace:
 REQUEST_URI=/trackstar/index.php?r=project/delete&id=1
 HTTP_REFERER=http://localhost/trackstar/index.php?r=site/login
 ---
+2013/09/06 22:32:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gi".' in /var/www/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('gi')
+#1 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /var/www/trackstar/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/trackstar/index.php?r=gi
+---
+2013/09/06 22:33:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'trackstar.tbl_issue' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_issue`.
+in /var/www/trackstar/index.php (13)
+2013/09/06 22:49:56 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'project_
+                    id' doesn't exist in table. The SQL statement executed was: ALTER TABLE `tbl_issue` ADD CONSTRAINT `fk_issue_project` FOREIGN KEY (`project_
+                    id`) REFERENCES `tbl_project` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT.
+2013/09/06 22:51:59 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'tbl_issue' already exists. The SQL statement executed was: CREATE TABLE `tbl_issue` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` varchar(255) NOT NULL,
+	`description` text,
+	`project_id` int(11) DEFAULT NULL,
+	`type_id` int(11) DEFAULT NULL,
+	`status_id` int(11) DEFAULT NULL,
+	`owner_id` int(11) DEFAULT NULL,
+	`requester_id` int(11) DEFAULT NULL,
+	`create_time` datetime DEFAULT NULL,
+	`create_user_id` int(11) DEFAULT NULL,
+	`update_time` datetime DEFAULT NULL,
+	`update_user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB.
+2013/09/07 00:13:38 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "project".' in /var/www/yii/framework/web/CController.php:878
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(782): CController->renderPartial('project', NULL, true)
+#1 /var/www/trackstar/protected/controllers/SiteController.php(32): CController->render('project')
+#2 /var/www/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionIndex()
+#3 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /var/www/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#5 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#7 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#9 /var/www/trackstar/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/trackstar/index.php
+---
+2013/09/07 02:35:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a project before performing this action.' in /var/www/trackstar/protected/controllers/IssueController.php:181
+Stack trace:
+#0 /var/www/yii/framework/web/filters/CInlineFilter.php(58): IssueController->filterProjectContext(Object(CFilterChain))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('issue/create')
+#10 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /var/www/trackstar/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/trackstar/index.php?r=issue/create
+HTTP_REFERER=http://localhost/trackstar/index.php?r=issue/admin
+---
+2013/09/07 02:52:01 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a project before performing this action.' in /var/www/trackstar/protected/controllers/IssueController.php:181
+Stack trace:
+#0 /var/www/yii/framework/web/filters/CInlineFilter.php(58): IssueController->filterProjectContext(Object(CFilterChain))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('issue/create')
+#10 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /var/www/trackstar/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/trackstar/index.php?r=issue/create
+---
+2013/09/07 03:01:28 [error] [php] Use of undefined constant php - assumed 'php' (/var/www/trackstar/protected/views/issue/_form.php:33)
+Stack trace:
+#0 /var/www/yii/framework/web/CController.php(869): IssueController->renderFile()
+#1 /var/www/trackstar/protected/views/issue/create.php(18): IssueController->renderPartial()
+#2 /var/www/yii/framework/web/CBaseController.php(126): require()
+#3 /var/www/yii/framework/web/CBaseController.php(95): IssueController->renderInternal()
+#4 /var/www/yii/framework/web/CController.php(869): IssueController->renderFile()
+#5 /var/www/yii/framework/web/CController.php(782): IssueController->renderPartial()
+#6 /var/www/trackstar/protected/controllers/IssueController.php(81): IssueController->render()
+#7 /var/www/yii/framework/web/actions/CInlineAction.php(49): IssueController->actionCreate()
+#8 /var/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /var/www/yii/framework/web/filters/CFilterChain.php(133): IssueController->runAction()
+#10 /var/www/trackstar/protected/controllers/IssueController.php(182): CFilterChain->run()
+#11 /var/www/yii/framework/web/filters/CInlineFilter.php(58): IssueController->filterProjectContext()
+#12 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#13 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /var/www/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#15 /var/www/yii/framework/web/filters/CInlineFilter.php(58): IssueController->filterAccessControl()
+#16 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#17 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#18 /var/www/yii/framework/web/CController.php(265): IssueController->runActionWithFilters()
+#19 /var/www/yii/framework/web/CWebApplication.php(282): IssueController->run()
+#20 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#21 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#22 /var/www/trackstar/index.php(13): CWebApplication->run()
+REQUEST_URI=/trackstar/index.php?r=issue/create&pid=2
+in /var/www/trackstar/protected/views/issue/_form.php (33)
+in /var/www/trackstar/protected/views/issue/create.php (18)
+in /var/www/trackstar/protected/controllers/IssueController.php (81)
+2013/09/07 03:02:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Must specify a project before performing this action.' in /var/www/trackstar/protected/controllers/IssueController.php:181
+Stack trace:
+#0 /var/www/yii/framework/web/filters/CInlineFilter.php(58): IssueController->filterProjectContext(Object(CFilterChain))
+#1 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 /var/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /var/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /var/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /var/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /var/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /var/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#9 /var/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('issue/create')
+#10 /var/www/yii/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /var/www/trackstar/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/trackstar/index.php?r=issue/create
+HTTP_REFERER=http://localhost/trackstar/index.php?r=issue/admin
+---
